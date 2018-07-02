@@ -34,7 +34,7 @@ public class DeletePlaceTest {
 
 		Response res = given().queryParam("key", prop.getProperty("KEY")).
 
-				body(Payload.getPostData()).when().post(resources.addPostData()).// resources
+				body(Payload.getPostBody()).when().post(resources.addPostRequest()).// resources
 				then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and()
 				.body("status", equalTo("OK")).
 

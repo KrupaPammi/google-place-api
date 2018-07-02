@@ -2,7 +2,7 @@ package files;
 
 public class resources {
 
-	public static String addPostData()
+	public static String addPostRequest()
 	{
 		String res="/maps/api/place/add/json";
 		return res;

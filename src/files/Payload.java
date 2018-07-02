@@ -2,7 +2,7 @@ package files;
 
 public class Payload {
 
-	public static String getPostData()
+	public static String getPostBody()
 	{
 		String b ="{"+
 				"\"location\": {"+
