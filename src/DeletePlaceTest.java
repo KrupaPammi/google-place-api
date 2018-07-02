@@ -19,58 +19,42 @@ import io.restassured.response.Response;
 public class DeletePlaceTest {
 
 	Properties prop = new Properties();
-	
+
 	@BeforeTest
-	public void getData() throws IOException
-	{
-		FileInputStream fis = new FileInputStream("../RestAPISampleProject/src/files/env.properties");
-		
+	public void getData() throws IOException {
+		FileInputStream fis = new FileInputStream("../google-place-api/src/files/env.properties");
+
 		prop.load(fis);
 	}
-	
-	
-	@Test
-	public void addAndDeletePlace() 
-	{
-	
 
-	RestAssured.baseURI= prop.getProperty("HOST");
-	
-	Response res = given().queryParam("key", prop.getProperty("KEY")).
-	
-			body(Payload.getPostData()).
-			when().
-			post(resources.addPostData()).//resources
-			then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
-			body("status", equalTo("OK")).
-	
-			extract().response();
-	
-	String responseString = res.asString();
-	
-	System.out.println(responseString);
-	
-	JsonPath js = new JsonPath(responseString);
-	
-	String placeId = js.get("place_id");
-	
-	System.out.println(placeId);
-	
-	
-	//delete place
-	given().
-	queryParam("key", prop.getProperty("KEY")).
-	
-	body("{"+
-			  "\"place_id\": \""+placeId+"\""+
-		"}").
-	when().
-	post(resources.deletePlace()).
-	then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
-	body("status", equalTo("OK"));
-	
-	
-	
-	
+	@Test
+	public void addAndDeletePlace() {
+
+		RestAssured.baseURI = prop.getProperty("HOST");
+
+		Response res = given().queryParam("key", prop.getProperty("KEY")).
+
+				body(Payload.getPostData()).when().post(resources.addPostData()).// resources
+				then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and()
+				.body("status", equalTo("OK")).
+
+				extract().response();
+
+		String responseString = res.asString();
+
+		System.out.println(responseString);
+
+		JsonPath js = new JsonPath(responseString);
+
+		String placeId = js.get("place_id");
+
+		System.out.println(placeId);
+
+		// delete place
+		given().queryParam("key", prop.getProperty("KEY")).
+
+				body("{" + "\"place_id\": \"" + placeId + "\"" + "}").when().post(resources.deletePlace()).then()
+				.assertThat().statusCode(200).and().contentType(ContentType.JSON).and().body("status", equalTo("OK"));
+
 	}
 }

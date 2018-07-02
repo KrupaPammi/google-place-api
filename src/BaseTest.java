@@ -17,7 +17,7 @@ public class BaseTest {
 		
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("../RestAPISampleProject/src/files/env.properties");
+		FileInputStream fis = new FileInputStream("../google-place-api/src/files/env.properties");
 		
 		prop.load(fis);
 		
