@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Rest API">
+    <classes>
+      <class name="tests.AddPlaceTestInXML"/>
+      <class name="tests.ParsingJsonResponseToExtractPlaceNames"/>
+      <class name="tests.DeletePlaceTest"/>
+      <class name="tests.AddPlaceTest"/>
+      <class name="tests.FirstSimpleTest"/>
+    </classes>
+  </test> <!-- Rest API -->
+</suite> <!-- Suite -->

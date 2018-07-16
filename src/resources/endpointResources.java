@@ -1,6 +1,7 @@
-package files;
+package resources;
 
-public class resources {
+
+public class endpointResources {
 
 	public static String addPostRequest()
 	{

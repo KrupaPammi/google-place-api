@@ -1,3 +1,4 @@
+package tests;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
@@ -18,7 +19,7 @@ public class BaseTest {
 		
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("../google-place-api/src/files/env.properties");
+		FileInputStream fis = new FileInputStream("../google-place-api/src/resources/env.properties");
 		
 		prop.load(fis);
 		
